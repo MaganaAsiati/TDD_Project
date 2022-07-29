@@ -13,3 +13,8 @@ it 'takes one argument and returns its factorial' do
   fact = @solver.factorial(5)
   expect(fact).to eq(6)
 end
+it 'raises exception for negative number' do
+  expect { @solver.factorial(-5) }.to raise_exception
+end
+end
+
