@@ -33,4 +33,10 @@ describe 'fizzbuzz method' do
     expect(str).to eq('fizz')
   end
 
+  it 'takes an integer N and returns a string buzz if N is divisible by 5' do
+    str = @solver.fizzbuzz(5)
+
+    expect(str).to eq('buzz')
+  end
+
   
