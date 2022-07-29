@@ -7,3 +7,9 @@ describe Solver do
     it "should create a new Solver" do
       @solver.should be_an_instance_of Solver
     end
+end
+describe "#factorial" do
+it 'takes one argument and returns its factorial' do
+  fact = @solver.factorial(5)
+  expect(fact).to eq(6)
+end
