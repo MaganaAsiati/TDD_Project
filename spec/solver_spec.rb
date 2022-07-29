@@ -1,3 +1,4 @@
+
 describe Solver do
   before :each do
     @solver = Solver.new
@@ -11,7 +12,7 @@ end
 describe "#factorial" do
 it 'takes one argument and returns its factorial' do
   fact = @solver.factorial(5)
-  expect(fact).to eq(6)
+  expect(fact).to eq(120)
 end
 it 'raises exception for negative number' do
   expect { @solver.factorial(-5) }.to raise_exception
@@ -22,7 +23,7 @@ describe 'reverse method' do
   it 'takes a string and return it reversed' do
     rev = @solver.reversed('world')
 
-    expect(rev).to eq(rev)
+    expect(rev).to eq('dlrow')
   end
 end
 
@@ -52,3 +53,25 @@ describe 'fizzbuzz method' do
   end
 end
 end
+
+# class Solver
+#   def factorial(number)
+#     (1..number).inject(:*) || 1
+#   end
+
+#   def reversed(word)
+#     word.reverse
+#   end
+
+#   def fizzbuzz(num)
+#     if (num % 3).zero? && (num % 5).zero?
+#       'fizzbuzz'
+#     elsif (num % 3).zero?
+#       'fizz'
+#     elsif (num % 5).zero?
+#       'buzz'
+#     else
+#       num
+#     end
+#   end
+# end
