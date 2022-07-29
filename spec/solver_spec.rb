@@ -18,3 +18,12 @@ it 'raises exception for negative number' do
 end
 end
 
+describe 'reverse method' do
+  it 'takes a string and return it reversed' do
+    rev = @solver.reversed('world')
+
+    expect(rev).to eq(rev)
+  end
+end
+
+
