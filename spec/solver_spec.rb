@@ -1,78 +1,60 @@
 require_relative 'spec_helper'
+require_relative '../challenge'
 
-describe Solver do
+describe Challenge do
   before :each do
-    @solver = Solver.new
-  end 
+    @challenge = Challenge.new
+  end
 
-  describe "#new" do
-    it "should create a new Solver" do
-      @solver.should be_an_instance_of Solver
+  describe '#new' do
+    it 'should create a new Solver' do
+      @challenge.should be_an_instance_of Challenge
     end
-end
-describe "#factorial" do
-it 'takes one argument and returns its factorial' do
-  fact = @solver.factorial(5)
-  expect(fact).to eq(120)
-end
-it 'raises exception for negative number' do
-  expect { @solver.factorial(-5) }.to raise_exception
-end
-end
-
-describe 'reverse method' do
-  it 'takes a string and return it reversed' do
-    rev = @solver.reversed('world')
-
-    expect(rev).to eq('dlrow')
   end
-end
+  describe '#factorial' do
+    it 'takes one argument and returns its factorial' do
+      fact = @challenge.factorial(5)
+      expect(fact).to eq(120)
+    end
 
-describe 'fizzbuzz method' do
-  it 'takes an integer N and returns a string fizz if N is divisible by 3' do
-    str = @solver.fizzbuzz(3)
-
-    expect(str).to eq('fizz')
+    it 'raises exception for negative number' do
+      solver = double
+      allow(solver).to receive(:factorial).with(-1).and_raise(ArgumentError)
+      expect { solver.factorial(-1) }.to raise_error(ArgumentError)
+    end
   end
 
-  it 'takes an integer N and returns a string buzz if N is divisible by 5' do
-    str = @solver.fizzbuzz(5)
+  describe 'reverse method' do
+    it 'takes a string and return it reversed' do
+      rev = @challenge.reversed('world')
 
-    expect(str).to eq('buzz')
+      expect(rev).to eq('dlrow')
+    end
   end
 
-  it 'takes an integer N and returns a string fizz if N is divisible by 3 and 5' do
-    str = @solver.fizzbuzz(15)
+  describe 'fizzbuzz method' do
+    it 'takes an integer N and returns a string fizz if N is divisible by 3' do
+      str = @challenge.fizzbuzz(3)
 
-    expect(str).to eq('fizzbuzz')
-  end
+      expect(str).to eq('fizz')
+    end
 
-  it 'takes an integer N and returns N as a string for other cases' do
-    str = @solver.fizzbuzz(7)
+    it 'takes an integer N and returns a string buzz if N is divisible by 5' do
+      str = @challenge.fizzbuzz(5)
 
-    expect(str).to eq('7')
+      expect(str).to eq('buzz')
+    end
+
+    it 'takes an integer N and returns a string fizz if N is divisible by 3 and 5' do
+      str = @challenge.fizzbuzz(15)
+
+      expect(str).to eq('fizzbuzz')
+    end
+
+    it 'takes an integer N and returns N as a string for other cases' do
+      str = @challenge.fizzbuzz(7)
+
+      expect(str).to eq(7)
+    end
   end
 end
-end
-
-# class Solver
-#   def factorial(number)
-#     (1..number).inject(:*) || 1
-#   end
-
-#   def reversed(word)
-#     word.reverse
-#   end
-
-#   def fizzbuzz(num)
-#     if (num % 3).zero? && (num % 5).zero?
-#       'fizzbuzz'
-#     elsif (num % 3).zero?
-#       'fizz'
-#     elsif (num % 5).zero?
-#       'buzz'
-#     else
-#       num
-#     end
-#   end
-# end
