@@ -39,4 +39,9 @@ describe 'fizzbuzz method' do
     expect(str).to eq('buzz')
   end
 
-  
+  it 'takes an integer N and returns a string fizz if N is divisible by 3 and 5' do
+    str = @solver.fizzbuzz(15)
+
+    expect(str).to eq('fizzbuzz')
+  end
+
