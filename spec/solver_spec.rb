@@ -26,4 +26,11 @@ describe 'reverse method' do
   end
 end
 
+describe 'fizzbuzz method' do
+  it 'takes an integer N and returns a string fizz if N is divisible by 3' do
+    str = @solver.fizzbuzz(3)
 
+    expect(str).to eq('fizz')
+  end
+
+  
